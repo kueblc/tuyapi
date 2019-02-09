@@ -8,7 +8,7 @@
   	"ava": "ava test/",
     "test": "xo src/* --quiet && npm run ava",
     "cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "document": "documentation build index.js -f html -o docs --config documentation.yml",
+    "document": "documentation build src/index.js -f html -o docs --config documentation.yml",
     "build": "tsc",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
