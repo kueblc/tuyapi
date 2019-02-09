@@ -1,6 +1,9 @@
 # playground for testing during development
 dev.js
 
+# built TypeScript code
+built/
+
 # Logs
 logs
 *.log

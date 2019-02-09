@@ -2,12 +2,17 @@
   "name": "tuyapi",
   "version": "3.2.3",
   "description": "An easy-to-use API for devices that use Tuya's cloud services",
-  "main": "index.js",
+  "main": "built/index.js",
+  "files": ["built/**/*"],
   "scripts": {
-    "test": "xo --quiet && ava",
+  	"ava": "ava test/",
+    "test": "xo src/* --quiet && npm run ava",
     "cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "document": "documentation build index.js -f html -o docs --config documentation.yml",
-    "pushtags": "git push origin master --tags"
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "preversion": "npm test"    
   },
   "repository": {
     "type": "git",
@@ -41,6 +46,7 @@
     "coveralls": "3.0.2",
     "documentation": "9.1.1",
     "nyc": "13.2.0",
+    "typescript": "^3.3.3",
     "xo": "0.24.0"
   },
   "xo": {
