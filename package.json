@@ -3,16 +3,19 @@
   "version": "3.2.3",
   "description": "An easy-to-use API for devices that use Tuya's cloud services",
   "main": "built/index.js",
-  "files": ["built/**/*"],
+  "files": [
+    "built/**/*"
+  ],
   "scripts": {
-  	"ava": "ava test/",
+    "ava": "ava test/",
     "test": "xo src/* --quiet && npm run ava",
     "cover": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "document": "documentation build src/index.js -f html -o docs --config documentation.yml",
+    "document": "npx typedoc --out docs src/ --tsconfig tsconfig.json",
     "build": "tsc",
+    "watch": "tsc --watch",
     "prepare": "npm run build",
     "prepublishOnly": "npm test",
-    "preversion": "npm test"    
+    "preversion": "npm test"
   },
   "repository": {
     "type": "git",
@@ -35,6 +38,7 @@
   },
   "homepage": "https://github.com/codetheweb/tuyapi#readme",
   "dependencies": {
+    "@types/node-forge": "^0.7.11",
     "crc": "^3.5.0",
     "debug": "^4.0.0",
     "node-forge": "^0.8.0",
@@ -44,8 +48,8 @@
   "devDependencies": {
     "ava": "1.2.1",
     "coveralls": "3.0.2",
-    "documentation": "9.1.1",
     "nyc": "13.2.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.3.3",
     "xo": "0.24.0"
   },
